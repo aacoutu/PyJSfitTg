@@ -10,4 +10,4 @@ In addition to the browser-based fitting of Tg, provides further analysis tools 
 
 Takes as input: 
 
-  -comma delimited .txt file containing times and fluorescence intensities
+  Comma delimited .txt file containing times and fluorescence intensities
