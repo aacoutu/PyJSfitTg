@@ -20,7 +20,6 @@ import os
 
 #TODO
 ###############################
-
 Tmax = 130 # starting temperature of your data collection on cooling
 Tmin = 35 # final temperature
 coolRate = 1 # cooling rate (K/min)
@@ -34,9 +33,9 @@ binSizeTwo = 15 # second derivative bin size (unit is number of data points)
 analyzeMSE = True # choose whether to analyze fit line MSE for identifying initial dropoff from linearity
 startBuffer = 10 # temperature difference from Tmax that yields a reasonable initial lower T bound
 
-saveIvsT = True # choose whether to save the data reformatted with a temperature axis
-
+saveIvsT = False # choose whether to save the data reformatted with a temperature axis
 ###############################
+
 
 # calculation for number of rows of data assuming inclusion of data at Tmax and Tmin
 Trange = Tmax - Tmin
@@ -89,7 +88,7 @@ if saveIvsT:
 
 # derivative analysis
 
-# given the data set and some bin size, output the derivative data set via fit slopes to the bins
+# given the data set and some bin size, output the derivative data set via fit slopes to the bins; superior to finite differencing
 def differentiate(xData, yData, binSize):
     
     # length of the derivative data set that will be output (half a bin worth of range is lost at each end, aside from one point in total)
