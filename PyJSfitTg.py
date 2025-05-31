@@ -188,7 +188,7 @@ if analyzeMSE:
     plt.show();
 
 
-# preparing for JavaScript protocol
+# preparing for JavaScript callback
 
 # axis labels
 label_x = "Temperature (degrees C)"
@@ -269,7 +269,7 @@ Tg = Div(text = '0.0', width = 100, height = 50)
 MSEglass = Div(text = '0.00000', width = 100, height = 50)
 MSEliquid = Div(text = '0.00000', width = 100, height = 50)
 
-# JavaScript arguments
+# JavaScript callback arguments
 callback_args = dict(
     coords_1 = line_1_source,
     coords_2 = line_2_source,
@@ -289,7 +289,7 @@ callback_args = dict(
 )
 
 
-# JavaScript for browser-based real-time interactive data fitting
+# JavaScript callback for browser-based real-time interactive data fitting
 callback = CustomJS(args=callback_args,
                     code="""
     
@@ -426,7 +426,7 @@ callback = CustomJS(args=callback_args,
     }
     MSEliquid.text = (res2Sum/(N*ymax)).toFixed(8)
     
-    // logging:
+    // logging
     console.clear()
     console.log("Red interval: " + [coords_1.data['x'][0], coords_2.data['x'][0]])
     console.log("Red interval best fit: c_1: " + vec_red[0] + " , c_0: " + vec_red[1])
@@ -449,5 +449,5 @@ MSEglassTitle = Div(text = 'Normalized MSE Glass =', width = 150, height = 50)
 MSEliquidTitle = Div(text = 'Normalized MSE Liquid =', width = 150, height = 50)
 layout = row(plot, column(slider_1, slider_2, slider_3, slider_4, blank, row(TgTitle, Tg), row(MSEglassTitle, MSEglass), row(MSEliquidTitle, MSEliquid)))
 
-output_file("out.html")
+output_file('out.html')
 show(layout)
